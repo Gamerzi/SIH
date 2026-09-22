@@ -919,21 +919,37 @@ body {
 .status-pill-active { background: rgba(0, 242, 254, 0.15); color: var(--accent-cyan); border: 1px solid var(--accent-cyan); }
 .status-pill-success { background: rgba(16, 185, 129, 0.15); color: var(--accent-success); border: 1px solid var(--accent-success); }
 
-/* Table Styling */
 .nwp-summary-box {
     display: flex;
     gap: 20px;
     background: rgba(30, 41, 59, 0.4);
     padding: 16px 20px;
     border-radius: var(--radius-md);
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
-.summary-item { flex: 1; }
+.summary-item { 
+    flex: 1; 
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
 .s-label { display: block; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px; }
-.s-val { font-weight: 700; font-size: 1.05rem; }
+.s-val { 
+    font-weight: 700; 
+    font-size: 1.05rem; 
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
 
 .table-responsive {
+    width: 100%;
+    max-width: 100%;
     overflow-x: auto;
+    display: block;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
 }
 
 .data-table {
@@ -1545,21 +1561,68 @@ button:active, .step-node:active {
         text-overflow: ellipsis !important;
     }
 
+    .workspace-right {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+    }
+
+    .viewport-panel {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .viewport-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        padding: 16px 12px !important;
+        min-height: auto !important;
+    }
+
+    .nwp-summary-box {
+        flex-direction: column !important;
+        gap: 8px !important;
+        padding: 12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .summary-item {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .s-val {
+        font-size: 0.9rem !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+
     .table-responsive {
         width: 100% !important;
         max-width: 100% !important;
         overflow-x: auto !important;
         display: block !important;
+        box-sizing: border-box !important;
         -webkit-overflow-scrolling: touch !important;
     }
 
     .data-table {
-        min-width: 480px !important;
+        min-width: 440px !important;
         font-size: 0.78rem !important;
     }
 
     .data-table th, .data-table td {
-        padding: 8px 10px !important;
+        padding: 8px 8px !important;
         white-space: nowrap !important;
     }
 
