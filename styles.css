@@ -35,22 +35,32 @@
     --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-width: 100%;
 }
 
-html {
+html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     font-family: var(--font-body);
     background: #040712;
     color: var(--text-main);
 }
 
-body {
+#app {
+    width: 100%;
+    max-width: 100vw;
     overflow-x: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+body {
     min-height: 100vh;
     background: 
         radial-gradient(ellipse at 15% 15%, rgba(0, 242, 254, 0.28) 0%, transparent 55%),
@@ -1279,6 +1289,346 @@ button:active, .step-node:active {
     font-weight: 700;
     font-size: 1.1rem;
 }
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES (MOBILE & TABLET OPTIMIZATIONS)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .workspace-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .stepper-wrapper {
+        overflow-x: auto !important;
+        padding: 14px 16px !important;
+        gap: 12px !important;
+        justify-content: flex-start !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .step-node {
+        flex-shrink: 0 !important;
+    }
+
+    .step-line {
+        min-width: 16px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    /* Header & Nav */
+    .glass-nav {
+        padding: 10px 14px !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+    .nav-links {
+        display: none !important;
+    }
+
+    .nav-brand {
+        font-size: 1.05rem !important;
+        gap: 6px !important;
+    }
+
+    .brand-icon {
+        width: 22px !important;
+        height: 22px !important;
+    }
+
+    .badge {
+        display: none !important;
+    }
+
+    #quick-launch-btn {
+        padding: 6px 12px !important;
+        font-size: 0.75rem !important;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        padding: 85px 12px 30px !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+
+    .hero-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .hero-title {
+        font-size: 1.55rem !important;
+        line-height: 1.28 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .hero-subtitle {
+        font-size: 0.88rem !important;
+        line-height: 1.45 !important;
+        margin-bottom: 20px !important;
+        padding: 0 4px !important;
+    }
+
+    .hero-badge {
+        padding: 6px 12px !important;
+        font-size: 0.72rem !important;
+        white-space: normal !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        line-height: 1.3 !important;
+    }
+
+    /* Hero Proof Card */
+    .hero-proof-card {
+        padding: 14px 12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 24px !important;
+    }
+
+    .proof-header {
+        flex-direction: column !important;
+        gap: 6px !important;
+        align-items: flex-start !important;
+    }
+
+    .proof-tag {
+        font-size: 0.72rem !important;
+    }
+
+    .live-indicator {
+        font-size: 0.72rem !important;
+    }
+
+    .proof-grid {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .proof-vs {
+        transform: rotate(90deg);
+        margin: 2px 0 !important;
+    }
+
+    .proof-box {
+        width: 100% !important;
+        padding: 12px !important;
+    }
+
+    .proof-value {
+        font-size: 1.4rem !important;
+    }
+
+    .hero-cta-group {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+    }
+
+    .hero-cta-group .btn {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 12px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .metrics-row {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        padding: 12px !important;
+        border-radius: var(--radius-md) !important;
+        width: 100% !important;
+    }
+
+    .metric-num {
+        font-size: 1.15rem !important;
+    }
+
+    .metric-label {
+        font-size: 0.68rem !important;
+    }
+
+    .metric-divider {
+        display: none !important;
+    }
+
+    /* Workspace Section */
+    .workspace-section {
+        padding: 40px 12px !important;
+    }
+
+    .section-title {
+        font-size: 1.6rem !important;
+    }
+
+    .section-desc {
+        font-size: 0.88rem !important;
+    }
+
+    .viewport-card {
+        padding: 16px 12px !important;
+        min-height: auto !important;
+    }
+
+    .viewport-header {
+        flex-direction: column !important;
+        gap: 8px !important;
+        align-items: flex-start !important;
+    }
+
+    .viewport-title {
+        font-size: 1.1rem !important;
+    }
+
+    /* Model Viewport Elements */
+    .regime-banner {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 14px !important;
+        gap: 10px !important;
+    }
+
+    .regime-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .bias-comparison-display {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .b-arrow {
+        transform: none !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 8px !important;
+        margin: 10px 0 !important;
+        padding: 6px 14px !important;
+        background: rgba(0, 242, 254, 0.1) !important;
+        border: 1px solid rgba(0, 242, 254, 0.3) !important;
+        border-radius: 20px !important;
+        font-size: 0.82rem !important;
+    }
+
+    .b-val {
+        font-size: 1.6rem !important;
+    }
+
+    .btn-action {
+        width: 100% !important;
+        max-width: 100% !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        font-size: 0.82rem !important;
+        padding: 10px 12px !important;
+        text-align: left !important;
+        line-height: 1.3 !important;
+    }
+
+    .form-select {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 0.8rem !important;
+        padding: 8px 10px !important;
+        white-space: normal !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .table-responsive {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        display: block !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .data-table {
+        min-width: 480px !important;
+        font-size: 0.78rem !important;
+    }
+
+    .data-table th, .data-table td {
+        padding: 8px 10px !important;
+        white-space: nowrap !important;
+    }
+
+    .threshold-cards {
+        grid-template-columns: 1fr !important;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .nwp-summary-box {
+        flex-direction: column !important;
+        gap: 8px !important;
+        padding: 12px !important;
+    }
+
+    .chart-container {
+        height: 200px !important;
+    }
+
+    .f-pill {
+        font-size: 0.75rem !important;
+        padding: 6px 10px !important;
+    }
+
+    /* Footer Mobile */
+    .footer-content {
+        flex-direction: column !important;
+        gap: 10px !important;
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .glass-nav {
+        padding: 8px 10px !important;
+    }
+
+    .brand-name {
+        font-size: 0.95rem !important;
+    }
+
+    .hero-title {
+        font-size: 1.35rem !important;
+    }
+
+    .hero-badge {
+        font-size: 0.68rem !important;
+        padding: 4px 10px !important;
+    }
+
+    .proof-value {
+        font-size: 1.25rem !important;
+    }
+
+    .stepper-wrapper {
+        gap: 6px !important;
+        padding: 10px 12px !important;
+    }
+
+    .step-circle {
+        width: 34px !important;
+        height: 34px !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+
 
 
 
